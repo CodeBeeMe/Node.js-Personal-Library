@@ -1,0 +1,166 @@
+<html>
+<head>
+    <title>FCC ISQA Project - Personal Library</title>
+    <meta name="description" content="A cool thing made with HyperDev">
+    <link id="favicon" rel="icon" href="https://hyperdev.com/favicon-app.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous" type="text/css">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Raleway|Roboto" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/public/style.css" type="text/css">
+</head>
+
+<body>
+    <div id="title">
+        <h6>Information Security and Quality Assurance Projects:</h6>
+
+        <h1>03. Personal Library</h1>
+    </div><br>
+
+    <div class="container">
+      <div id="content">
+            <div class="section">
+                <div id="userstories">
+                    <h2>User Stories</h2>
+
+                    <ol class="user-stories">
+                        <li>Nothing from my website will be cached in my client as a security measure.</li>
+
+                        <li>I will see that the site is powered by 'PHP 4.2.0' even though it isn't as a security measure.</li>
+
+                        <li>I can <b>post</b> a <code>title</code> to /api/books to add a book and returned will be the object with the <code>title</code> and a unique <code>_id</code>.</li>
+
+                        <li>I can <b>get</b> <code>/api/books</code> to retrieve an aray of all books containing <code>title</code>, <code>_id</code>, &amp; <code>commentcount</code>.</li>
+
+                        <li>I can <b>get</b> <code>/api/books/{_id}</code> to retrieve a single object of a book containing <code>title</code>, <code>_id</code>, &amp; an array of <code>comments</code> (empty array if no comments).</li>
+
+                        <li>I can <b>post</b> a <code>comment</code> to <code>/api/books/{_id}</code> to add a comment to a book and returned will be the books object similar to <b>get</b> <code>/api/books/{_id}</code>.</li>
+
+                        <li>I can <b>delete</b> <code>/api/books/{_id}</code> to delete a book from the collection. Returned will be 'delete successful' if successful.</li>
+
+                        <li>If I try to request a book that doesn't exist I will get a 'no book exists' message.</li>
+
+                        <li>I can send a <b>delete</b> request to /api/books to delete all books in the database. Returned will be 'complete delete successful' if successful.</li>
+
+                        <li>All 6 functional tests required are complete and passing.</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="section">
+                <div id="sampleposting">
+                    <h2>Test API responses:</h2>
+
+                    <div class="sub-section">
+                        <form id="titleTest" class="test" action="/api/books" method="post">
+                          <h4>Test post to <code>/api/books</code></h4>
+                          <input type="text" name="title" value="" placeholder="*Title"><br>
+                          <input type="submit" value="SUBMIT">
+                        </form>
+                      <hr>
+                        <form id="commentTest" class="test" action="" method="post">
+                            <h4>Test post to <code>/api/books/{bookId}</code></h4><input id="idinputtest" type="text" name="id" value="" placeholder="*_id"> <input type="text" name="comment" value="" placeholder="*Comment"><br>
+                            <input type="submit" value="SUBMIT">
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div id="sampleui">
+                    <h2>Sample Front-End:</h2>
+
+                    <div class="sub-section">
+                        <form id="newBookForm" class="border">
+                          <h4>Adding a new book to the library</h4>
+                          <input type="text" id="bookTitleToAdd" name="title" placeholder="*New Book Title"> <input type="submit" value="SUBMIT NEW BOOK" id="newBook">
+                        </form>
+                    </div>
+
+                    <div id="display"></div>
+
+                    <div id="bookDetail">
+                        <h6 id="detailTitle">Select a book to see details and comments</h6>
+
+                        <ol id="detailComments"></ol>
+                    </div>
+                  
+                </div>
+              
+            </div>
+          <div class="section">
+            <h2>
+              API Methods:
+            </h2>
+            <div id="apinfo">
+            <table id="apimethods">
+                <thead>                  
+                  <tr>
+                    <th style="border-radius: 3px 0 0 0">API</th>
+                    
+                    <th>GET</th>
+                    
+                    <th>POST</th>
+                    
+                    <th style="color: #ff8c8c; border-radius: 0 3px 0 0">DELETE</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td style="border-bottom: 1px solid #ddd"><code><b>/api/books</b></code></td>
+
+                        <td style="border-bottom: 1px solid #ddd">list all books</td>
+
+                        <td style="border-bottom: 1px solid #ddd">add new book</td>
+
+                        <td style="border-bottom: 1px solid #ddd">delete all books</td>
+                    </tr>
+
+                    <tr>
+                        <td><code><b>/api/books/abcd</b></code></td>
+
+                        <td>show book abcd</td>
+
+                        <td>add comment to abcd</td>
+
+                        <td>delete abcd</td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+            <div class="sub-section delete">
+              <h4>Careful with this one, once pressed, it purges the library!</h4>
+              <input type="submit" id="deleteAllBooks" value="DELETE ALL BOOKS?">
+            </div>  
+        </div>
+        <div class="section status" style="width: 967.5px">
+          <div id="responseUi">
+            <div class="output">
+              <code id="jsonResult"></code>
+            </div> 
+          </div>
+        </div>
+      </div>
+    </div>
+  <div id="footer">
+    <h5>Designed and coded by <a href="https://github.com/Madness2aMaze" target="_blank" id="footbar" title="©2019 Cătălin Anghel-Ursu @Madness2aMaze - All Rights Reserved">@Madness2aMaze ©2019 - All Rights Reserved</a> | <a href="https://codepen.io/Madness2aMaze/"
+          title="More of my works" target="_blank"><i class="fab fa-codepen"></i></a> | <a href="https://www.freecodecamp.com/" target="_blank" title="FreeCodeCamp"><i class="fab fa-free-code-camp"></i></a>
+    </h5>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.4.0.min.js" integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous" type="text/javascript">
+</script><script src="/public/client.js" type="text/javascript">
+</script><script type="text/javascript">
+  /*
+      *  For #sampleposting to update form action url to test inputs book id
+      */
+      $(function() {        
+       $('#commentTest').submit(function(){
+         var id = $('#idinputtest').val();
+         $(this).attr('action', "/api/books/" + id);
+       });
+      });
+    </script>
+</body>
+</html>
