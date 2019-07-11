@@ -14,44 +14,40 @@
 <body>
     <div id="title">
         <h6>Information Security and Quality Assurance Projects:</h6>
-
         <h1>03. Personal Library</h1>
     </div><br>
-
     <div class="container">
       <div id="content">
-            <div class="section">
-                <div id="userstories">
-                    <h2>User Stories</h2>
-
-                    <ol class="user-stories">
-                        <li>Nothing from my website will be cached in my client as a security measure.</li>
-
-                        <li>I will see that the site is powered by 'PHP 4.2.0' even though it isn't as a security measure.</li>
-
-                        <li>I can <b>post</b> a <code>title</code> to /api/books to add a book and returned will be the object with the <code>title</code> and a unique <code>_id</code>.</li>
-
-                        <li>I can <b>get</b> <code>/api/books</code> to retrieve an aray of all books containing <code>title</code>, <code>_id</code>, &amp; <code>commentcount</code>.</li>
-
-                        <li>I can <b>get</b> <code>/api/books/{_id}</code> to retrieve a single object of a book containing <code>title</code>, <code>_id</code>, &amp; an array of <code>comments</code> (empty array if no comments).</li>
-
-                        <li>I can <b>post</b> a <code>comment</code> to <code>/api/books/{_id}</code> to add a comment to a book and returned will be the books object similar to <b>get</b> <code>/api/books/{_id}</code>.</li>
-
-                        <li>I can <b>delete</b> <code>/api/books/{_id}</code> to delete a book from the collection. Returned will be 'delete successful' if successful.</li>
-
-                        <li>If I try to request a book that doesn't exist I will get a 'no book exists' message.</li>
-
-                        <li>I can send a <b>delete</b> request to /api/books to delete all books in the database. Returned will be 'complete delete successful' if successful.</li>
-
-                        <li>All 6 functional tests required are complete and passing.</li>
-                    </ol>
-                </div>
-            </div>
+        <div class="section">
+          <div id="userstories">
+            <h2>User Stories</h2>
+            <ol class="user-stories">
+              <li>Nothing from my website will be cached in my client as a security measure.</li>
+              <li>I will see that the site is powered by 'PHP 4.2.0' even though it isn't as a security measure.</li>
+              <li>I can <b>post</b> a <code>title</code> to /api/books to add a book and returned will be the object with the <code>title</code> and a unique <code>_id</code>.</li>
+              <li>I can <b>get</b> <code>/api/books</code> to retrieve an aray of all books containing <code>title</code>, <code>_id</code>, &amp; <code>commentcount</code>.</li>
+              <li>I can <b>get</b> <code>/api/books/{_id}</code> to retrieve a single object of a book containing <code>title</code>, <code>_id</code>, &amp; an array of <code>comments</code> (empty array if no comments).</li>
+              <li>I can <b>post</b> a <code>comment</code> to <code>/api/books/{_id}</code> to add a comment to a book and returned will be the books object similar to <b>get</b> <code>/api/books/{_id}</code>.</li>
+              <li>I can <b>delete</b> <code>/api/books/{_id}</code> to delete a book from the collection. Returned will be 'delete successful' if successful.</li>
+              <li>If I try to request a book that doesn't exist I will get a 'no book exists' message.</li>
+              <li>I can send a <b>delete</b> request to /api/books to delete all books in the database. Returned will be 'complete delete successful' if successful.</li>
+              <li>All 6 functional tests required are complete and passing.</li>
+            </ol>
+          </div>
+        </div>
+        <div class="section status" style="width: 967.5px">
+          <div id="responseUi">
+            <div class="output">
+              <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="spinner" role="img" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 512 512" class="svg-inline--fa fa-spinner fa-w-16 fa-spin fa-lg"><path fill="currentColor" d="M304 48c0 26.51-21.49 48-48 48s-48-21.49-48-48 21.49-48 48-48 48 21.49 48 48zm-48 368c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zm208-208c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zM96 256c0-26.51-21.49-48-48-48S0 229.49 0 256s21.49 48 48 48 48-21.49 48-48zm12.922 99.078c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48c0-26.509-21.491-48-48-48zm294.156 0c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48c0-26.509-21.49-48-48-48zM108.922 60.922c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.491-48-48-48z" class=""></path></svg>
+              <span>&#xa0; &#xa0;</span>
+              <code id="jsonResult"></code>
+            </div> 
+          </div>
+        </div>
 
             <div class="section">
                 <div id="sampleposting">
                     <h2>Test API responses:</h2>
-
                     <div class="sub-section">
                         <form id="titleTest" class="test" action="/api/books" method="post">
                           <h4>Test post to <code>/api/books</code></h4>
@@ -60,34 +56,33 @@
                         </form>
                       <hr>
                         <form id="commentTest" class="test" action="" method="post">
-                            <h4>Test post to <code>/api/books/{bookId}</code></h4><input id="idinputtest" type="text" name="id" value="" placeholder="*_id"> <input type="text" name="comment" value="" placeholder="*Comment"><br>
-                            <input type="submit" value="SUBMIT">
+                          <h4>Test post to <code>/api/books/{bookId}</code></h4>
+                          <input id="idinputtest" type="text" name="id" value="" placeholder="*_id"> 
+                          <input type="text" name="comment" value="" placeholder="*Comment"><br>
+                          <input type="submit" value="SUBMIT">
                         </form>
                     </div>
                 </div>
             </div>
 
-            <div class="section">
+            <div class="section frontend">
                 <div id="sampleui">
                     <h2>Sample Front-End:</h2>
-
                     <div class="sub-section">
-                        <form id="newBookForm" class="border">
+                        <form id="newBookForm" class="border" action="" method="post">
                           <h4>Adding a new book to the library</h4>
-                          <input type="text" id="bookTitleToAdd" name="title" placeholder="*New Book Title"> <input type="submit" value="SUBMIT NEW BOOK" id="newBook">
+                          <input type="text" id="bookTitleToAdd" name="title" placeholder="*New Book Title">
+                          <input type="submit" id="newBook" value="SUBMIT NEW BOOK">
                         </form>
-                    </div>
-
-                    <div id="display"></div>
-
-                    <div id="bookDetail">
-                        <h6 id="detailTitle">Select a book to see details and comments</h6>
-
+                    </div>                  
+                  <div id="display">
+                    <h4>Library entries:</h4>
+                  </div>
+                  <div id="bookDetail">
+                        <p id="detailTitle">Select a book to see details and comments</p>
                         <ol id="detailComments"></ol>
-                    </div>
-                  
-                </div>
-              
+                    </div>                  
+                </div>              
             </div>
           <div class="section">
             <h2>
@@ -97,34 +92,23 @@
             <table id="apimethods">
                 <thead>                  
                   <tr>
-                    <th style="border-radius: 3px 0 0 0">API</th>
-                    
-                    <th>GET</th>
-                    
-                    <th>POST</th>
-                    
+                    <th style="border-radius: 3px 0 0 0">API</th>                    
+                    <th>GET</th>                    
+                    <th>POST</th>                    
                     <th style="color: #ff8c8c; border-radius: 0 3px 0 0">DELETE</th>
                   </tr>
                 </thead>
-
                 <tbody>
                     <tr>
                         <td style="border-bottom: 1px solid #ddd"><code><b>/api/books</b></code></td>
-
                         <td style="border-bottom: 1px solid #ddd">list all books</td>
-
                         <td style="border-bottom: 1px solid #ddd">add new book</td>
-
                         <td style="border-bottom: 1px solid #ddd">delete all books</td>
                     </tr>
-
                     <tr>
                         <td><code><b>/api/books/abcd</b></code></td>
-
                         <td>show book abcd</td>
-
                         <td>add comment to abcd</td>
-
                         <td>delete abcd</td>
                     </tr>
                 </tbody>
@@ -132,16 +116,11 @@
             </div>
             <div class="sub-section delete">
               <h4>Careful with this one, once pressed, it purges the library!</h4>
-              <input type="submit" id="deleteAllBooks" value="DELETE ALL BOOKS?">
+              <form id="deleteForm" class="border" action="" method="delete">
+                <input type="submit" id="deleteAllBooks" value="DELETE ALL BOOKS?">
+              </form>
             </div>  
-        </div>
-        <div class="section status" style="width: 967.5px">
-          <div id="responseUi">
-            <div class="output">
-              <code id="jsonResult"></code>
-            </div> 
-          </div>
-        </div>
+        </div>        
       </div>
     </div>
   <div id="footer">
