@@ -32,6 +32,11 @@ app.use(helmet());
 app.use(helmet.xssFilter()); //Mitigate the risk of XSS - `helmet.xssFilter()`
 app.use(helmet.noSniff()); //Avoid inferring the response MIME type - `helmet.noSniff()`
 
+// The `hidePoweredBy` middleware will remove the `X-Powered-By` header.
+// You can also explicitly set the header to something else, to throw
+// people off. e.g. `helmet.hidePoweredBy({ setTo: 'PHP 4.2.0' })`
+app.use(helmet.hidePoweredBy({ setTo: 'PHP 4.2.0' }));
+
 //Index page (static HTML)
 app.route('/')
   .get(function (req, res) {
