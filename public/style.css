@@ -68,7 +68,6 @@ input[type=text] {
   /*background: linear-gradient(to right, #faaca8, #ddd6f3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
-
 .section {
   color: #000;
   margin: 5px;
@@ -105,44 +104,8 @@ input[type=text] {
   padding-left: 10px;
 }
 
-#apinfo {  
-  font-family: monospace;
-  margin-top: 15px;
-  border-radius: 5px;
-  transition: .2s;
-}
-
-table {
-  margin: 0 auto;
-  margin-bottom: 20px;
-  max-width: 292px;
-  text-align: center;
-  border-radius: 5px;
-  border: 1px solid #c6bacf;
-  background: rgba(255, 255, 255, .8);  
-}
-
-td {
-  font-size: 10px;
-  padding: 5px;
-}
-
-thead,
-tfoot {
-  font-size: 14px;
-  background: rgba(0, 0, 0, .5);
-  color: #fff;
-}
-
-.examples {
-  margin: 10px 10px 0px -30px;
-  font-family: monospace;
-  position: relative;
-  text-align: justify;
-}
-
-.examples li {
-  margin-top: 1em;
+#display h4 {
+  margin-top: 10px;
 }
 
 .returned {
@@ -180,6 +143,15 @@ tfoot {
   transition: .5s;
 }
 
+svg:not(:root).svg-inline--fa {
+    overflow: visible;
+}
+
+.svg-inline--fa.fa-w-16 {
+    width: 1em;
+}
+
+
 #result {
   display: flex;
   flex-wrap: wrap;
@@ -188,7 +160,8 @@ tfoot {
   max-width: 300px;
 }
 
-#sampleui {
+.frontend {
+  padding-bottom: 5px;
 }
 
 #json {
@@ -227,6 +200,164 @@ code {
   font-size: 10px;
 }
 
+.listWrapper {
+  color: #fff;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10px;
+  font-family: monospace;
+  font-size: 11px;
+  text-align: left;
+  max-width: 248px;
+  max-height: 150px;
+  border-radius: 5px;
+  border: 1px solid #c6bacf;
+  overflow: scroll;
+  background: rgba(0, 0, 0, .8); 
+}
+
+.listWrapper li {
+  padding: 2px 2px 2px 7px;
+  border-radius: 2px;
+  margin: 1px;
+  background: linear-gradient(to right, rgba(255, 255, 255, .2), rgba(0, 0, 0, 0));
+}
+
+.bookLink {
+  color: #fff;
+  cursor: pointer;
+  transition: .2s;
+}
+
+.bookLink:hover {
+  color: #cc8fff;
+  transition: .2s;
+}
+
+.listWrapper::-webkit-scrollbar:horizontal {
+  overflow: hidden;
+  display: none;
+}
+
+.listWrapper::-webkit-scrollbar {
+  background: rgba(255, 255, 255, .3); 
+  width: 5px;  
+}
+
+.listWrapper::-webkit-scrollbar-track {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.listWrapper::-webkit-scrollbar-thumb {  
+  background: rgba(0, 0, 0, .2);
+  border-radius: 15px;
+}
+
+#bookDetail {
+  max-width: 270px;
+  margin: 0 auto;
+  border-radius: 5px;
+  background: rgba(0, 0, 0, .1); 
+}
+
+#detailTitle {
+  padding: 10px;
+  font-family: monospace;
+  font-size: 11px;
+}
+
+#detailComments {
+  padding: 10px;
+  margin-top: 0;
+  padding-top: 0;
+  color: #fff;
+  display: none;
+  flex-wrap: wrap;  
+  font-family: monospace;
+  font-size: 11px;
+  text-align: left;
+  max-width: 248px;
+}
+
+#detailComments li {
+  color: #333;
+  margin: 2px 5px 0 5px;
+  padding: 0;
+  padding-left: 5px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, .5); 
+}
+
+#newCommentForm {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#newCommentForm input[type=submit]:hover {
+  color: #71bc40;
+  border: 2px solid #71bc40;
+  background-color: #f4f9ff;
+  transition: .2s;  
+}
+
+#newCommentForm input[type=text]  {
+  margin: 5px;
+  width: 235px;
+}
+
+#newCommentForm input[type=submit] {
+  font-size: 11px;
+  max-width: 110px;
+}
+
+#newCommentForm input[type=button] {
+  font-size: 11px;
+  max-width: 110px;
+}
+
+#newCommentForm input[type=button]:hover {
+  color: #fc7c7c;
+  border: 2px solid #fc7c7c;
+  background-color: #f4f9ff;
+  transition: .2s;  
+}
+
+#newCommentForm:hover {
+  background: rgba(135, 216, 82, .5);
+  transition: .2s;
+}
+
+#apinfo {  
+  font-family: monospace;
+  margin-top: 15px;
+  border-radius: 5px;
+  transition: .2s;
+}
+
+table {
+  margin: 0 auto;
+  margin-bottom: 20px;
+  max-width: 292px;
+  text-align: center;
+  border-radius: 5px;
+  border: 1px solid #c6bacf;
+  background: rgba(255, 255, 255, .8);  
+}
+
+td {
+  font-size: 10px;
+  padding: 5px;
+}
+
+thead,
+tfoot {
+  font-size: 14px;
+  background: rgba(0, 0, 0, .5);
+  color: #fff;
+}
+
+
 form {
   border: 2px solid transparent;
   background: none;
@@ -239,7 +370,6 @@ form {
 form label {
   font-size: 12px;
 }
-
 
 .delete {
   max-width: 276px;
@@ -261,9 +391,8 @@ form label {
   color: #71bc40;
   border: 2px solid #71bc40;
   background-color: #f4f9ff;
-  transition: .2s;  
+  transition: .2s;
 }
-
 
 #deleteAllBooks:hover {
   color: #fc7c7c;
@@ -310,7 +439,7 @@ input[type=text]::placeholder, textarea::placeholder  {
   color: rgba(0, 0, 0, .4);
 }
 
-input[type=submit]  {
+input[type=submit], input[type=button] {
   color: #f4f9ff;
   width: 200px;
   font-weight: bold;
@@ -323,45 +452,18 @@ input[type=submit]  {
   transition: .2s;
 }
 
-input[type=submit]:hover {
+input[type=submit]:hover, input[type=button]:hover {
   color: #333;
   border: 2px solid #c98cff;
   background-color: #f4f9ff;
   transition: .2s;  
 }
 
-input[type=submit]:active, input[type=submit]:focus {
+input[type=submit]:active, input[type=submit]:focus, input[type=button]:active, input[type=button]:focus {
   border: 2px solid #c98cff;
   box-shadow: 0px 0px 0px 5px #DAE2F8;
   transition: .2s;
   outline: none;
-}
-
-button {
-  cursor: pointer;
-  padding: 0px;
-  margin-bottom: 10px;
-  font-size: 14px;
-  border-width: 0px;
-  border-bottom: 2px #a076c5 solid;
-  background: transparent;
-  transition: .15s;
-}
-
-button:hover {
-  transition: .15s;
-  border-bottom: 2px #fff solid;
-}
-
-button a {  
-  color: #fff;
-  text-decoration: none;
-  transition: .15s;
-}
-
-button a:hover {
-  color: #a076c5;
-  transition: .15s;
 }
 
 #footer {
@@ -427,5 +529,4 @@ button a:hover {
     h1 {
       font-size: 2em;
     }
-  }
-  
+}
