@@ -39,16 +39,18 @@ module.exports = (app, db) => {
       //this.commentcount  = this.comments.length; //getting the commentcount value looking at the length of the comments array
     }
     
+    const bookEntry = new Book(); //one instance of a new Book() object
+    
     if (!title) { //checking to see if the user entered a title in the required input field
       res.send('*required fields missing');
     } else { //all fields are filled => proceed to add the book to the library database collection
       db.collection("library")
-        .insertOne(new Book(), (err, doc) => {
-        err ? res.send(err) : res.send(new Book());
+        .insertOne(bookEntry, (err, doc) => {
+        err ? res.send(err) : res.send(bookEntry);
         //console.log('Book ' + title + ' has been successfully submitted into the library.');
         //console.log(bookEntry);
       });
-    }
+    }    
   })
       
     .delete(function(req, res){
@@ -60,6 +62,7 @@ module.exports = (app, db) => {
     });
   });
 
+
   app.route('/api/books/:id')
     .get(function (req, res){
     const bookId = req.params.id;
@@ -69,25 +72,25 @@ module.exports = (app, db) => {
       .toArray((err, book) => {
       book.length < 1 ? res.send('no book exists') : null;
       err ? res.send(err) : res.send(book[0]);
-      console.log(book[0]);
+      //console.log(book[0]);
     });
   })
     
     .post(function(req, res){
-      const bookId = req.params.id;
-      const comment = req.body.comment;
-      //json res format same as .get
+    const bookId = req.params.id;
+    const comment = req.body.comment;
+    //json res format same as .get
     db.collection("library")
       .findOneAndUpdate(
       {_id: new ObjectId(bookId)},
       { $push: { comments: comment }},
       (err, book) => {
-      err ? res.send(err) : res.send(book.value);
-      //console.log('Comment has been successfully submitted to the book.');
-      //console.log(book);
+        err ? res.send(err) : res.send(book.value);
+        //console.log('Comment has been successfully submitted to the book.');
+        //console.log(book);
       });    
     })
-    
+  
     .delete(function(req, res){
     const bookId = req.params.id;
     //if successful response will be 'delete successful'
